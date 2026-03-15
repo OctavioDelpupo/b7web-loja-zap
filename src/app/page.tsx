@@ -1,9 +1,19 @@
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { ProductsTab } from "@/components/products/tab";
+import { TabSkeleton } from "@/components/products/tabSkeleton";
+import { Suspense } from "react";
+
 export default function Home() {
-  const meuNome = "Octavio Delpupo";
-  console.log(meuNome);
   return (
-    <div>
-      <h1>Ola mundo</h1>
+    <div className="w-full max-w-4xl mx-auto">
+      <Header />
+      <div className="mx-3">
+        <Suspense fallback={<TabSkeleton />}>
+          <ProductsTab />
+        </Suspense>
+      </div>
+      <Footer />
     </div>
   );
 }
